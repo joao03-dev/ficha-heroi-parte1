@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-fundo: #0d0b1a;
+    --cor-painel: #1a1730;
+    --cor-borda: #3a2f5c;
+    --cor-texto: #e8e6f0;
+    --cor-secundaria: #a79ec9;
+    --cor-destaque: #c9a227;   /* dourado */
+    --cor-hp: #c0392b;
+    --cor-mp: #2e86de;
+    --cor-xp: #27ae60;
+    --fonte-titulo: 'Cinzel', 'Georgia', serif;
+    --fonte-texto: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ---------- LAYOUT GERAL ---------- */
+body {
+    background: radial-gradient(circle at top, #1a1730 0%, #0d0b1a 100%);
+    color: var(--cor-texto);
+    font-family: var(--fonte-texto);
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.ficha {
+    max-width: 900px;
+    width: 100%;
+    background-color: var(--cor-painel);
+    border: 2px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(201, 162, 39, 0.15);
+}
+
+/* ---------- CABEÇALHO ---------- */
+.cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 1.5rem;
+}
+
+.retrato {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--cor-destaque);
+    object-fit: cover;
+    background-color: #2a2545;
+}
+
+.identidade h1 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-destaque);
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.subtitulo {
+    color: var(--cor-secundaria);
+    margin-top: 0.25rem;
+}
+
+.alinhamento {
+    font-style: italic;
+    color: var(--cor-secundaria);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* ---------- BARRAS DE STATUS ---------- */
+.status-vitais {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.barra {
+    position: relative;
+    background-color: #0d0b1a;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    height: 26px;
+    overflow: hidden;
+}
+
+.barra .rotulo {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    font-size: 0.85rem;
+    z-index: 2;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.barra .valor {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    z-index: 2;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.barra .preenchimento {
+    height: 100%;
+    transition: width 0.6s ease;
+}
+
+.barra.hp .preenchimento { background: linear-gradient(90deg, #7a1f17, var(--cor-hp)); }
+.barra.mp .preenchimento { background: linear-gradient(90deg, #1b4f8a, var(--cor-mp)); }
+.barra.xp .preenchimento { background: linear-gradient(90deg, #166638, var(--cor-xp)); }
+
+/* ---------- SEÇÕES ---------- */
+section {
+    margin-top: 2rem;
+}
+
+section h2 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-destaque);
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+/* ---------- ATRIBUTOS ---------- */
+.atributos ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.atributos li {
+    background-color: #0d0b1a;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.atributos strong {
+    color: var(--cor-destaque);
+    font-size: 1.2rem;
+}
+
+/* ---------- HABILIDADES ---------- */
+.habilidades .habilidade {
+    background-color: #0d0b1a;
+    border-left: 4px solid var(--cor-destaque);
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.habilidade h3 {
+    color: var(--cor-destaque);
+    font-size: 1.05rem;
+}
+
+.habilidade p {
+    color: var(--cor-texto);
+    font-size: 0.95rem;
+    margin: 0.4rem 0;
+}
+
+.habilidade .custo {
+    font-size: 0.8rem;
+    color: var(--cor-mp);
+    font-weight: bold;
+}
+
+/* ---------- INVENTÁRIO ---------- */
+.inventario ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.inventario li {
+    background-color: #0d0b1a;
+    border: 1px solid var(--cor-borda);
+    padding: 0.5rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* ---------- HISTÓRIA ---------- */
+.historia p {
+    line-height: 1.6;
+    color: var(--cor-secundaria);
+    font-style: italic;
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+@media (max-width: 600px) {
+    .cabecalho {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .atributos ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .identidade h1 {
+        font-size: 1.5rem;
+    }
+}
